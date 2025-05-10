@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeAIToolsHub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow p-4">
+    <h1 class="text-3xl font-bold text-center">FreeAIToolsHub</h1>
+    <p class="text-center text-sm text-gray-500">Discover 100% Free AI Tools for Productivity, Creativity & More</p>
+  </header>
+
+  <main class="p-4 max-w-5xl mx-auto">
+    <div class="mb-4">
+      <input type="text" id="search" placeholder="Search tools..." class="w-full p-2 border rounded" />
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="tools-grid">
+      <!-- Tool Cards -->
+    </div>
+  </main>
+
+  <section class="bg-white p-4 mt-8 shadow">
+    <h2 class="text-xl font-semibold mb-2">Submit a Tool</h2>
+    <p class="text-sm text-gray-600">Know a great free AI tool? <a href="mailto:workbridge008@gmail.com" class="text-blue-600 underline">Email us</a> to get listed!</p>
+  </section>
+
+  <footer class="text-center text-sm text-gray-500 p-4 mt-4">
+    <p>Support this project via UPI: <strong>kadamkunal@fam</strong></p>
+    <p>&copy; 2025 FreeAIToolsHub</p>
+  </footer>
+
+  <script>
+    const tools = [
+      {
+        name: "ChatGPT",
+        description: "AI chatbot for conversations and problem-solving.",
+        link: "https://chat.openai.com",
+        tags: ["chat", "writing"]
+      },
+      {
+        name: "Leonardo AI",
+        description: "AI art and design generator with advanced tools.",
+        link: "https://leonardo.ai",
+        tags: ["image", "art"]
+      },
+      {
+        name: "Notion AI",
+        description: "Boost productivity and notes with built-in AI.",
+        link: "https://www.notion.so/product/ai",
+        tags: ["productivity", "writing"]
+      },
+      {
+        name: "Kreateable",
+        description: "Free AI-powered logo and branding tool.",
+        link: "https://kreateable.com",
+        tags: ["branding", "design"]
+      },
+      {
+        name: "Cleanup.pictures",
+        description: "Remove unwanted objects from images using AI.",
+        link: "https://cleanup.pictures",
+        tags: ["image", "cleanup"]
+      },
+      {
+        name: "Hugging Face Spaces",
+        description: "Explore and use community-made AI apps for free.",
+        link: "https://huggingface.co/spaces",
+        tags: ["tools", "coding"]
+      }
+    ];
+
+    const grid = document.getElementById("tools-grid");
+
+    function renderTools(filter = "") {
+      grid.innerHTML = "";
+      tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach(tool => {
+        const card = document.createElement("div");
+        card.className = "bg-white p-4 rounded shadow hover:shadow-lg transition";
+        card.innerHTML = `
+          <h3 class="text-lg font-bold">${tool.name}</h3>
+          <p class="text-sm mb-2">${tool.description}</p>
+          <a href="${tool.link}" target="_blank" class="text-blue-500 underline">Visit Tool</a>
+          <div class="text-xs text-gray-400 mt-1">Tags: ${tool.tags.join(", ")}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    document.getElementById("search").addEventListener("input", (e) => {
+      renderTools(e.target.value);
+    });
+
+    renderTools();
+  </script>
+</body>
+</html>
