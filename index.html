@@ -9,264 +9,294 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .dark-mode {
+      background-color: #1f2937;
+      color: white;
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-all duration-300">
-  <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg sticky top-0 z-50 dark:bg-gradient-to-r dark:from-indigo-700 dark:via-purple-800 dark:to-pink-700">
-    <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-wide">FreeAIToolsHub</h1>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#tools" class="text-white hover:text-indigo-100 transition duration-300">Tools</a>
-        <a href="#submit" class="text-white hover:text-indigo-100 transition duration-300">Submit Tool</a>
-        <a href="#donate" class="text-white hover:text-indigo-100 transition duration-300">Donate</a>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600">FreeAIToolsHub</h1>
+      <nav class="hidden md:flex space-x-4">
+        <a href="#tools" class="text-gray-600 hover:text-indigo-600">Tools</a>
+        <a href="#submit" class="text-gray-600 hover:text-indigo-600">Submit Tool</a>
+        <a href="#donate" class="text-gray-600 hover:text-indigo-600">Donate</a>
       </nav>
-      <!-- Dark Mode Toggle Button -->
-      <button id="dark-mode-toggle" class="text-white p-2 rounded-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m4.22-11.22l1.42 1.42M4.22 4.22l1.42 1.42M21 12h-2m-14 0H3m4.22 4.22l1.42-1.42M19.78 19.78l-1.42-1.42M12 7a5 5 0 11-5 5 5 5 0 015-5z" />
-        </svg>
+      <!-- Dark Mode Toggle -->
+      <button id="darkModeToggle" class="text-gray-600 dark:text-white">
+        🌙
       </button>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-6 py-12">
+  <main class="max-w-7xl mx-auto px-4 py-10">
+
+    <!-- Header Section -->
     <section class="text-center mb-10">
-      <h2 class="text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Explore the Best Free AI Tools</h2>
-      <p class="text-gray-600 dark:text-gray-300 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Explore the Best Free AI Tools</h2>
+      <p class="text-gray-600 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
     </section>
 
+    <!-- Search Bar -->
     <div class="max-w-xl mx-auto mb-6">
-      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-indigo-500 transition duration-300" />
+      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500" />
     </div>
 
+    <!-- AI Tools Grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid">
-      <!-- Tool cards go here -->
+      <!-- Tool cards will go here -->
     </div>
+
   </main>
 
-  <section id="submit" class="bg-white py-12 border-t border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+  <!-- Submit Tool Section -->
+  <section id="submit" class="bg-white py-10 border-t border-gray-200">
     <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Submit Your Tool</h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-6">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-300 dark:hover:text-indigo-400 underline transition duration-300">Email us</a> to get featured!</p>
+      <h2 class="text-2xl font-semibold mb-2">Submit Your Tool</h2>
+      <p class="text-gray-600 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
     </div>
   </section>
 
-  <section id="donate" class="bg-gradient-to-r from-indigo-200 to-indigo-400 py-12 dark:bg-indigo-600">
+  <!-- Donate Section -->
+  <section id="donate" class="bg-indigo-50 py-10">
     <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-3xl font-semibold text-gray-700 dark:text-white mb-6">Support the Project</h2>
-      <p class="text-gray-700 dark:text-gray-200 mb-6">Like this project? Consider supporting us via UPI at:</p>
-      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-600">
-        <code class="font-mono text-indigo-600 dark:text-indigo-300">kadamkunal@fam</code>
+      <h2 class="text-2xl font-semibold mb-2">Support the Project</h2>
+      <p class="text-gray-700 mb-4">Like this project? Consider supporting us via UPI at:</p>
+      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow">
+        <code class="font-mono text-indigo-600">kadamkunal@fam</code>
       </div>
     </div>
   </section>
 
-  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t dark:bg-gray-800 dark:text-gray-400">
+  <!-- Footer -->
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
     <p>&copy; 2025 FreeAIToolsHub. All rights reserved.</p>
   </footer>
 
   <script>
-    const toggleButton = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-
-    // Check for saved user preference in localStorage
-    const darkModePreference = localStorage.getItem('darkMode');
-    if (darkModePreference === 'enabled') {
-      body.classList.add('dark');
-    }
-
-    // Add event listener to toggle dark mode
-    toggleButton.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      // Save the user's preference in localStorage
-      if (body.classList.contains('dark')) {
-        localStorage.setItem('darkMode', 'enabled');
-      } else {
-        localStorage.setItem('darkMode', 'disabled');
+    // AI Tools Data
+    const tools = [
+      {
+        name: "1. ChatGPT",
+        description: "AI chatbot for conversations and problem-solving.",
+        link: "https://chat.openai.com",
+        tags: ["chat", "writing"],
+        category: "Communication",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OpenAI_Logo.svg/120px-OpenAI_Logo.svg.png"
+      },
+      {
+        name: "2. Leonardo AI",
+        description: "AI art and design generator with advanced tools.",
+        link: "https://leonardo.ai",
+        tags: ["image", "art"],
+        category: "Design",
+        icon: "https://leonardo.ai/favicon.ico"
+      },
+      {
+        name: "3. Notion AI",
+        description: "Boost productivity and notes with built-in AI.",
+        link: "https://www.notion.so/product/ai",
+        tags: ["productivity", "writing"],
+        category: "Productivity",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/8/83/Notion_logo.png"
+      },
+      {
+        name: "4. Kreateable",
+        description: "Free AI-powered logo and branding tool.",
+        link: "https://kreateable.com",
+        tags: ["branding", "design"],
+        category: "Design",
+        icon: "https://kreateable.com/favicon.ico"
+      },
+      {
+        name: "5. Cleanup.pictures",
+        description: "Remove unwanted objects from images using AI.",
+        link: "https://cleanup.pictures",
+        tags: ["image", "cleanup"],
+        category: "Design",
+        icon: "https://cleanup.pictures/favicon.ico"
+      },
+      {
+        name: "6. Hugging Face Spaces",
+        description: "Explore and use community-made AI apps for free.",
+        link: "https://huggingface.co/spaces",
+        tags: ["tools", "coding"],
+        category: "Development",
+        icon: "https://huggingface.co/favicon.ico"
+      },
+      {
+        name: "7. Runway ML",
+        description: "AI-powered video editing and creative tools.",
+        link: "https://runwayml.com",
+        tags: ["video", "editing"],
+        category: "Design",
+        icon: "https://runwayml.com/favicon.ico"
+      },
+      {
+        name: "8. Copy.ai",
+        description: "Generate AI-driven content for marketing and copywriting.",
+        link: "https://www.copy.ai",
+        tags: ["writing", "marketing"],
+        category: "Marketing",
+        icon: "https://www.copy.ai/favicon.ico"
+      },
+      {
+        name: "9. Grammarly",
+        description: "AI grammar checker and writing assistant.",
+        link: "https://www.grammarly.com",
+        tags: ["writing", "productivity"],
+        category: "Productivity",
+        icon: "https://www.grammarly.com/favicon.ico"
+      },
+      {
+        name: "10. Chatsonic",
+        description: "AI assistant for writing, learning, and research.",
+        link: "https://chatsonic.com",
+        tags: ["chat", "writing"],
+        category: "Communication",
+        icon: "https://chatsonic.com/favicon.ico"
+      },
+      {
+        name: "11. Jasper AI",
+        description: "AI content generation for marketing and business.",
+        link: "https://www.jasper.ai",
+        tags: ["writing", "marketing"],
+        category: "Marketing",
+        icon: "https://www.jasper.ai/favicon.ico"
+      },
+      {
+        name: "12. Writesonic",
+        description: "Create SEO-friendly content with AI.",
+        link: "https://writesonic.com",
+        tags: ["writing", "SEO"],
+        category: "Marketing",
+        icon: "https://writesonic.com/favicon.ico"
+      },
+      {
+        name: "13. Piktochart",
+        description: "Create infographics, presentations, and reports.",
+        link: "https://piktochart.com",
+        tags: ["design", "visuals"],
+        category: "Design",
+        icon: "https://piktochart.com/favicon.ico"
+      },
+      {
+        name: "14. CopySmith",
+        description: "AI-powered content generator for marketers.",
+        link: "https://copysmith.ai",
+        tags: ["writing", "marketing"],
+        category: "Marketing",
+        icon: "https://copysmith.ai/favicon.ico"
+      },
+      {
+        name: "15. Designify",
+        description: "AI-driven design and image editing tool.",
+        link: "https://www.designify.com",
+        tags: ["design", "editing"],
+        category: "Design",
+        icon: "https://www.designify.com/favicon.ico"
+      },
+      {
+        name: "16. Synthesia",
+        description: "Create AI-powered video content.",
+        link: "https://www.synthesia.io",
+        tags: ["video", "AI"],
+        category: "Design",
+        icon: "https://www.synthesia.io/favicon.ico"
+      },
+      {
+        name: "17. Uizard",
+        description: "Convert designs into code with AI.",
+        link: "https://uizard.io",
+        tags: ["development", "design"],
+        category: "Development",
+        icon: "https://uizard.io/favicon.ico"
+      },
+      {
+        name: "18. Pictory",
+        description: "Create AI-generated videos from text.",
+        link: "https://pictory.ai",
+        tags: ["video", "AI"],
+        category: "Design",
+        icon: "https://pictory.ai/favicon.ico"
+      },
+      {
+        name: "19. Kuki Chatbot",
+        description: "AI chatbot for websites and e-commerce.",
+        link: "https://www.kuki.ai",
+        tags: ["chat", "e-commerce"],
+        category: "Communication",
+        icon: "https://www.kuki.ai/favicon.ico"
+      },
+      {
+        name: "20. Photor AI",
+        description: "AI image editing and photo restoration tool.",
+        link: "https://www.photor.ai",
+        tags: ["image", "editing"],
+        category: "Design",
+        icon: "https://www.photor.ai/favicon.ico"
+      },
+      {
+        name: "21. Lumen5",
+        description: "AI-driven video creation platform for marketers.",
+        link: "https://www.lumen5.com",
+        tags: ["video", "marketing"],
+        category: "Design",
+        icon: "https://www.lumen5.com/favicon.ico"
+      },
+      {
+        name: "22. Tracy.ai",
+        description: "AI-powered lead generation and business automation.",
+        link: "https://www.tracy.ai",
+        tags: ["marketing", "business"],
+        category: "Business",
+        icon: "https://www.tracy.ai/favicon.ico"
       }
-    });
+    ];
 
-   const tools = [
-  {
-    name: "ChatGPT",
-    description: "AI chatbot for conversations and problem-solving.",
-    link: "https://chat.openai.com",
-    tags: ["chat", "writing"],
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OpenAI_Logo.svg/120px-OpenAI_Logo.svg.png"
-  },
-  {
-    name: "Leonardo AI",
-    description: "AI art and design generator with advanced tools.",
-    link: "https://leonardo.ai",
-    tags: ["image", "art"],
-    icon: "https://leonardo.ai/favicon.ico"
-  },
-  {
-    name: "Notion AI",
-    description: "Boost productivity and notes with built-in AI.",
-    link: "https://www.notion.so/product/ai",
-    tags: ["productivity", "writing"],
-    icon: "https://notion.so/favicon.ico"
-  },
-  {
-    name: "Kreateable",
-    description: "Free AI-powered logo and branding tool.",
-    link: "https://kreateable.com",
-    tags: ["branding", "design"],
-    icon: "https://kreateable.com/favicon.ico"
-  },
-  {
-    name: "Cleanup.pictures",
-    description: "Remove unwanted objects from images using AI.",
-    link: "https://cleanup.pictures",
-    tags: ["image", "cleanup"],
-    icon: "https://cleanup.pictures/favicon.ico"
-  },
-  {
-    name: "Hugging Face Spaces",
-    description: "Explore and use community-made AI apps for free.",
-    link: "https://huggingface.co/spaces",
-    tags: ["tools", "coding"],
-    icon: "https://huggingface.co/favicon.ico"
-  },
-  {
-    name: "Copy.ai",
-    description: "AI-powered content writing and copywriting tool.",
-    link: "https://www.copy.ai",
-    tags: ["writing", "marketing"],
-    icon: "https://www.copy.ai/favicon.ico"
-  },
-  {
-    name: "Runway",
-    description: "AI video editing and creative suite.",
-    link: "https://runwayml.com",
-    tags: ["video", "editing"],
-    icon: "https://runwayml.com/favicon.ico"
-  },
-  {
-    name: "Jasper AI",
-    description: "AI for content creation, blog writing, and more.",
-    link: "https://www.jasper.ai",
-    tags: ["writing", "productivity"],
-    icon: "https://www.jasper.ai/favicon.ico"
-  },
-  {
-    name: "DALL·E 2",
-    description: "AI image generation based on text prompts.",
-    link: "https://openai.com/dall-e-2",
-    tags: ["image", "generation"],
-    icon: "https://openai.com/favicon.ico"
-  },
-  {
-    name: "Writesonic",
-    description: "AI writer for generating articles, blog posts, and more.",
-    link: "https://writesonic.com",
-    tags: ["writing", "marketing"],
-    icon: "https://writesonic.com/favicon.ico"
-  },
-  {
-    name: "Scribe AI",
-    description: "Automated transcription service powered by AI.",
-    link: "https://scribehow.com",
-    tags: ["transcription", "audio"],
-    icon: "https://scribehow.com/favicon.ico"
-  },
-  {
-    name: "Lumen5",
-    description: "AI-powered video creation platform.",
-    link: "https://www.lumen5.com",
-    tags: ["video", "creation"],
-    icon: "https://www.lumen5.com/favicon.ico"
-  },
-  {
-    name: "Synthesia",
-    description: "AI video creation with virtual avatars.",
-    link: "https://www.synthesia.io",
-    tags: ["video", "AI"],
-    icon: "https://www.synthesia.io/favicon.ico"
-  },
-  {
-    name: "CopySmith",
-    description: "AI tool for writing content and product descriptions.",
-    link: "https://copysmith.ai",
-    tags: ["writing", "content"],
-    icon: "https://copysmith.ai/favicon.ico"
-  },
-  {
-    name: "Artbreeder",
-    description: "AI platform for creating images through collaborative breeding.",
-    link: "https://www.artbreeder.com",
-    tags: ["image", "art"],
-    icon: "https://www.artbreeder.com/favicon.ico"
-  },
-  {
-    name: "DeepL",
-    description: "AI translation tool with superior accuracy.",
-    link: "https://www.deepl.com",
-    tags: ["translation", "language"],
-    icon: "https://www.deepl.com/favicon.ico"
-  },
-  {
-    name: "Quillbot",
-    description: "AI-powered paraphrasing and summarizing tool.",
-    link: "https://quillbot.com",
-    tags: ["writing", "paraphrasing"],
-    icon: "https://quillbot.com/favicon.ico"
-  },
-  {
-    name: "Frase",
-    description: "AI-driven research and content creation tool.",
-    link: "https://www.frase.io",
-    tags: ["research", "content"],
-    icon: "https://www.frase.io/favicon.ico"
-  },
-  {
-    name: "ContentBot",
-    description: "AI for writing blog posts and product descriptions.",
-    link: "https://contentbot.ai",
-    tags: ["writing", "marketing"],
-    icon: "https://contentbot.ai/favicon.ico"
-  },
-  {
-    name: "Fotor",
-    description: "AI-powered image editing and design platform.",
-    link: "https://www.fotor.com",
-    tags: ["image", "editing"],
-    icon: "https://www.fotor.com/favicon.ico"
-  },
-  {
-    name: "Wordtune",
-    description: "AI writing assistant for better clarity and tone.",
-    link: "https://www.wordtune.com",
-    tags: ["writing", "editing"],
-    icon: "https://www.wordtune.com/favicon.ico"
-  },
-  {
-    name: "ChatSonic",
-    description: "AI chatbot for customer support and content creation.",
-    link: "https://chatsonic.com",
-    tags: ["chat", "customer support"],
-    icon: "https://chatsonic.com/favicon.ico"
-  }
-];
-
-
-   const grid = document.getElementById("tools-grid");
+    const grid = document.getElementById("tools-grid");
 
     function renderTools(filter = "") {
       grid.innerHTML = "";
-      tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach((tool, index) => {
+      tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach(tool => {
         const card = document.createElement("div");
-        card.className = "bg-white rounded-xl p-5 shadow-lg hover:shadow-xl transition duration-300 dark:bg-gray-800 dark:text-white";
+        card.className = "bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition";
         card.innerHTML = `
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">
-            ${index + 1}. ${tool.name}
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${tool.description}</p>
-          <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold dark:text-indigo-400 dark:hover:text-indigo-500 transition duration-300">Visit Tool →</a>
-          <div class="text-xs text-gray-400 mt-2 dark:text-gray-500">Tags: ${tool.tags.join(", ")}</div>
+          <div class="flex items-center">
+            <img src="${tool.icon}" alt="${tool.name} icon" class="w-10 h-10 rounded-full mr-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-800 mb-1">${tool.name}</h3>
+              <p class="text-gray-600 text-sm mb-3">${tool.description}</p>
+              <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold">Visit Tool →</a>
+              <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
+              <div class="text-xs text-indigo-500 mt-1">Category: ${tool.category}</div>
+            </div>
+          </div>
         `;
         grid.appendChild(card);
       });
     }
+
+    document.getElementById("search").addEventListener("input", (e) => {
+      renderTools(e.target.value);
+    });
+
+    renderTools();
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    });
+  </script>
+
+</body>
+</html>
