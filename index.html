@@ -1,155 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FreeAIToolsHub</title>
+  <meta name="description" content="Explore and discover top free AI tools for productivity, creativity, and business.">
+  <meta name="keywords" content="AI tools, free AI, artificial intelligence, productivity, creativity, business, FreeAIToolsHub">
+  <meta name="author" content="FreeAIToolsHub">
+  <meta property="og:title" content="FreeAIToolsHub - Top Free AI Tools" />
+  <meta property="og:description" content="Discover the best free AI tools to boost your productivity and creativity." />
+  <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" />
+  <meta property="og:url" content="https://kunalkadam7.github.io/FreeAIToolsHub/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .dark-mode {
-      background-color: #1f2937;
-      color: white;
-    }
-
-    .tool-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-behavior: smooth;
+    body { font-family: 'Inter', sans-serif; }
+    .dark .dark\:bg-gray-900 { background-color: #1a202c; }
+    .dark .dark\:text-white { color: #fff; }
+    .tag-button.active { background-color: #6366f1; color: white; }
+    .tag-button.selected { background-color: #6366f1 !important; color: white !important; }
+    .shadow-md:hover {
+      transform: translateY(-3px);
+      transition: transform 0.2s;
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FreeAIToolsHub",
+    "url": "https://kunalkadam7.github.io/FreeAIToolsHub/",
+    "description": "Explore and discover top free AI tools for productivity, creativity, and business."
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKXW1P5F9H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JKXW1P5F9H');
+  </script>
 </head>
-
-<body class="bg-gray-50 text-gray-800">
-
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
+  <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600">
-        FreeAIToolsHub
+      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" alt="logo" class="w-8 h-8 rounded-full"> FreeAIToolsHub
       </h1>
-      <nav class="hidden md:flex space-x-4">
-        <a href="#tools" class="text-gray-600 hover:text-indigo-600">Tools</a>
-        <a href="#submit" class="text-gray-600 hover:text-indigo-600">Submit Tool</a>
-        <a href="#donate" class="text-gray-600 hover:text-indigo-600">Donate</a>
-      </nav>
-      <!-- Dark Mode Toggle -->
-      <button id="darkModeToggle" class="text-gray-600 dark:text-white">
-        🌙
-      </button>
+      <div class="flex items-center space-x-4">
+        <nav class="hidden md:flex space-x-4">
+          <a href="#tools" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Tools</a>
+          <a href="#submit" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Submit Tool</a>
+          <a href="#donate" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Donate</a>
+        </nav>
+        <button id="toggleDark" class="text-sm px-3 py-1 border border-indigo-500 rounded-md text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-700 transition">Toggle Dark Mode</button>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 py-10">
-
-    <!-- Header Section -->
-    <section class="text-center mb-10">
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Explore the Best Free AI Tools</h2>
-      <p class="text-gray-600 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
+    <main class="max-w-7xl mx-auto px-4 py-10">
+    <section class="text-center mb-10" data-aos="fade-down">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Explore the Best Free AI Tools</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
     </section>
 
-    <!-- Search Bar -->
-    <div class="max-w-xl mx-auto mb-6">
-      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500" />
+    <div class="max-w-xl mx-auto mb-4" data-aos="zoom-in">
+      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-800 dark:text-white" />
     </div>
 
-    <!-- AI Tools Grid -->
+    <div id="tags" class="flex flex-wrap justify-center gap-2 mb-4" data-aos="fade-up">
+      <button class="tag-button px-3 py-1 rounded-full border text-sm transition border-indigo-400 text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700" data-tag="">All</button>
+    </div>
+
+    <p id="tool-count" class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"></p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid">
-      <!-- Tool cards will go here -->
+      <!-- Tool cards will appear here -->
     </div>
-
   </main>
 
-  <!-- Submit Tool Section -->
-  <section id="submit" class="bg-white py-10 border-t border-gray-200">
+  <section id="submit" class="bg-white dark:bg-gray-800 py-10 border-t border-gray-200 dark:border-gray-700" data-aos="fade-left">
     <div class="max-w-3xl mx-auto text-center px-4">
       <h2 class="text-2xl font-semibold mb-2">Submit Your Tool</h2>
-      <p class="text-gray-600 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
     </div>
   </section>
 
-  <!-- Donate Section -->
-  <section id="donate" class="bg-indigo-50 py-10">
+  <section id="donate" class="bg-indigo-50 dark:bg-gray-700 py-10" data-aos="fade-right">
     <div class="max-w-3xl mx-auto text-center px-4">
       <h2 class="text-2xl font-semibold mb-2">Support the Project</h2>
-      <p class="text-gray-700 mb-4">Like this project? Consider supporting us via UPI at:</p>
-      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow">
+      <p class="text-gray-700 dark:text-gray-200 mb-4">Like this project? Consider supporting us via UPI at:</p>
+      <div class="inline-block bg-white dark:bg-gray-800 px-6 py-3 border border-indigo-200 rounded-xl shadow">
         <code class="font-mono text-indigo-600">kadamkunal@fam</code>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
+  <footer class="bg-white dark:bg-gray-800 text-center text-sm text-gray-500 dark:text-gray-300 py-6 border-t dark:border-gray-700" data-aos="fade-up">
     <p>&copy; 2025 FreeAIToolsHub. All rights reserved.</p>
-    <div class="flex justify-center space-x-4 mt-4">
-      <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 hover:text-indigo-800">Contact</a>
-      <a href="https://twitter.com" class="text-indigo-600 hover:text-indigo-800">Twitter</a>
-      <a href="https://github.com" class="text-indigo-600 hover:text-indigo-800">GitHub</a>
-    </div>
   </footer>
 
   <script>
-    // AI Tools Data
-   const tools = [
-  { name: "ChatGPT", description: "AI chatbot for conversations and problem-solving.", link: "https://chat.openai.com", tags: ["chat", "writing"], icon: "https://upload.wikimedia.org/wikipedia/commons/4/47/OpenAI_Logo.svg", category: "Conversational AI" },
-  { name: "Leonardo AI", description: "AI art and design generator with advanced tools.", link: "https://leonardo.ai", tags: ["image", "art"], icon: "https://leonardo.ai/logo.svg", category: "Art & Design" },
-  { name: "Notion AI", description: "Boost productivity and notes with built-in AI.", link: "https://www.notion.so/product/ai", tags: ["productivity", "writing"], icon: "https://notion.so/favicon.ico", category: "Productivity" },
-  { name: "Kreateable", description: "Free AI-powered logo and branding tool.", link: "https://kreateable.com", tags: ["branding", "design"], icon: "https://kreateable.com/favicon.ico", category: "Design" },
-  { name: "Cleanup.pictures", description: "Remove unwanted objects from images using AI.", link: "https://cleanup.pictures", tags: ["image", "cleanup"], icon: "https://cleanup.pictures/favicon.ico", category: "Image Editing" },
-  { name: "Hugging Face Spaces", description: "Explore and use community-made AI apps for free.", link: "https://huggingface.co/spaces", tags: ["tools", "coding"], icon: "https://huggingface.co/favicon.ico", category: "AI Apps" },
-  { name: "Runway", description: "Creative toolkit with AI-based video, image, and audio editing tools.", link: "https://runwayml.com", tags: ["video", "audio", "image"], icon: "https://runwayml.com/favicon.ico", category: "Creative Tools" },
-  { name: "DeepL", description: "AI-powered translation tool for multiple languages.", link: "https://www.deepl.com", tags: ["translation", "language"], icon: "https://www.deepl.com/favicon.ico", category: "Language Tools" },
-  { name: "Copy.ai", description: "AI for generating marketing copy, blog posts, and more.", link: "https://www.copy.ai", tags: ["writing", "content"], icon: "https://www.copy.ai/favicon.ico", category: "Writing" },
-  { name: "Synthesia", description: "AI video creation platform with virtual avatars.", link: "https://www.synthesia.io", tags: ["video", "AI"], icon: "https://www.synthesia.io/favicon.ico", category: "Video Creation" },
-  { name: "Jasper AI", description: "AI for content creation and writing, including blogs and social media posts.", link: "https://www.jasper.ai", tags: ["writing", "content"], icon: "https://www.jasper.ai/favicon.ico", category: "Writing" },
-  { name: "Lumen5", description: "Create videos from text content using AI.", link: "https://www.lumen5.com", tags: ["video", "content"], icon: "https://www.lumen5.com/favicon.ico", category: "Video Editing" },
-  { name: "CopySmith", description: "AI for generating marketing copy and ad campaigns.", link: "https://copysmith.ai", tags: ["writing", "marketing"], icon: "https://copysmith.ai/favicon.ico", category: "Marketing" },
-  { name: "Quillbot", description: "AI-based paraphrasing and text improvement tool.", link: "https://quillbot.com", tags: ["writing", "editing"], icon: "https://quillbot.com/favicon.ico", category: "Writing" },
-  { name: "Scribe", description: "AI that helps you write and edit professional documents.", link: "https://scribehow.com", tags: ["writing", "documentation"], icon: "https://scribehow.com/favicon.ico", category: "Documentation" },
-  { name: "AI Dungeon", description: "AI-powered storytelling and text-based adventure game.", link: "https://play.aidungeon.io", tags: ["gaming", "storytelling"], icon: "https://play.aidungeon.io/favicon.ico", category: "Gaming" },
-  { name: "Pikazo", description: "Create art from your photos using AI.", link: "https://pikazoapp.com", tags: ["image", "art"], icon: "https://pikazoapp.com/favicon.ico", category: "Art" },
-  { name: "Runway ML", description: "Create art, animation, and videos with AI.", link: "https://runwayml.com", tags: ["image", "video", "art"], icon: "https://runwayml.com/favicon.ico", category: "Creative AI" },
-  { name: "Descript", description: "Edit audio and video using AI-based transcription and editing.", link: "https://www.descript.com", tags: ["audio", "video"], icon: "https://www.descript.com/favicon.ico", category: "Audio/Video Editing" },
-  { name: "Artbreeder", description: "Create and explore art generated by AI.", link: "https://www.artbreeder.com", tags: ["image", "art"], icon: "https://www.artbreeder.com/favicon.ico", category: "Art" },
-  { name: "Mubert", description: "AI-generated music for creative projects.", link: "https://www.mubert.com", tags: ["music", "audio"], icon: "https://www.mubert.com/favicon.ico", category: "Music" },
-  { name: "Pexels AI", description: "AI tool for finding free stock images.", link: "https://www.pexels.com", tags: ["image", "stock"], icon: "https://www.pexels.com/favicon.ico", category: "Stock Images" }
-];
-
-
+    AOS.init();
+  </script>
+  <script>
+    const tools = [...document.currentScript.dataset.tools ? JSON.parse(document.currentScript.dataset.tools) : []];
     const grid = document.getElementById("tools-grid");
+    const tagsDiv = document.getElementById("tags");
+    const toolCount = document.getElementById("tool-count");
+    const allTags = [...new Set(tools.flatMap(t => t.tags))];
+    let selectedTag = "";
+
+    function renderTags() {
+      tagsDiv.innerHTML = '<button class="tag-button px-3 py-1 rounded-full border text-sm transition border-indigo-400 text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700" data-tag="">All</button>';
+      allTags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.textContent = tag;
+        btn.className = 'tag-button px-3 py-1 rounded-full border text-sm transition border-indigo-400 text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700';
+        btn.setAttribute("data-tag", tag);
+        tagsDiv.appendChild(btn);
+      });
+    }
+
+    tagsDiv.addEventListener("click", (e) => {
+      if (e.target.classList.contains("tag-button")) {
+        const tag = e.target.getAttribute("data-tag");
+        selectedTag = tag;
+        [...tagsDiv.children].forEach(btn => btn.classList.remove("selected"));
+        e.target.classList.add("selected");
+        renderTools(document.getElementById("search").value);
+      }
+    });
 
     function renderTools(filter = "") {
       grid.innerHTML = "";
-      tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach((tool, index) => {
+      const filtered = tools.filter(t =>
+        t.name.toLowerCase().includes(filter.toLowerCase()) &&
+        (selectedTag === "" || t.tags.includes(selectedTag))
+      );
+      toolCount.textContent = `${filtered.length} tools found`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p class="text-center col-span-full text-gray-400 dark:text-gray-500">No tools found.</p>`;
+        return;
+      }
+
+      filtered.forEach((tool, index) => {
         const card = document.createElement("div");
-        card.className = "bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition tool-card";
+        card.className = "bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-lg transition";
+        card.setAttribute("data-aos", "zoom-in");
         card.innerHTML = `
-          <div class="flex items-center">
-            <img src="${tool.icon}" alt="${tool.name} icon" class="w-10 h-10 rounded-full mr-4">
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 mb-1">${index + 1}. ${tool.name}</h3>
-              <p class="text-gray-600 text-sm mb-3">${tool.description}</p>
-              <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold">Visit Tool →</a>
-              <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
-              <div class="text-xs text-indigo-500 mt-1">Category: ${tool.category}</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">${index + 1}. ${tool.name}</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${tool.description}</p>
+          <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 font-semibold">Visit Tool →</a>
+          <button onclick="navigator.clipboard.writeText('${tool.link}')" class="ml-2 text-xs text-gray-500 hover:text-indigo-500">Copy Link</button>
+          <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
         `;
         grid.appendChild(card);
       });
@@ -159,16 +169,12 @@
       renderTools(e.target.value);
     });
 
-    renderTools();
-
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    document.getElementById("toggleDark").addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
     });
+
+    renderTags();
+    renderTools();
   </script>
-
 </body>
-
 </html>
