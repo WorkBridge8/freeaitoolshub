@@ -39,13 +39,6 @@
     "description": "Explore and discover top free AI tools for productivity, creativity, and business."
   }
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKXW1P5F9H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JKXW1P5F9H');
-  </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
   <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
@@ -64,7 +57,7 @@
     </div>
   </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-10">
+  <main class="max-w-7xl mx-auto px-4 py-10">
     <section class="text-center mb-10" data-aos="fade-down">
       <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Explore the Best Free AI Tools</h2>
       <p class="text-gray-600 dark:text-gray-300 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
@@ -75,7 +68,7 @@
     </div>
 
     <div id="tags" class="flex flex-wrap justify-center gap-2 mb-4" data-aos="fade-up">
-      <button class="tag-button px-3 py-1 rounded-full border text-sm transition border-indigo-400 text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700" data-tag="">All</button>
+      <!-- Tags will be dynamically added here -->
     </div>
 
     <p id="tool-count" class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"></p>
@@ -107,9 +100,28 @@
 
   <script>
     AOS.init();
-  </script>
-  <script>
-    const tools = [...document.currentScript.dataset.tools ? JSON.parse(document.currentScript.dataset.tools) : []];
+
+    // AI tools data
+    const tools = [
+      { name: "ChatGPT", description: "AI conversational model", link: "https://chat.openai.com", tags: ["AI", "Writing", "Productivity"] },
+      { name: "DeepL Translator", description: "AI translation tool", link: "https://www.deepl.com", tags: ["AI", "Translation", "Productivity"] },
+      { name: "Grammarly", description: "AI-powered writing assistant", link: "https://www.grammarly.com", tags: ["AI", "Writing", "Productivity"] },
+      { name: "Runway", description: "AI video editing tool", link: "https://www.runwayml.com", tags: ["AI", "Video Editing", "Creativity"] },
+      { name: "Descript", description: "AI transcription & video editing", link: "https://www.descript.com", tags: ["AI", "Video Editing", "Productivity"] },
+      { name: "Frase", description: "AI content writing tool", link: "https://www.frase.io", tags: ["AI", "Writing", "Productivity"] },
+      { name: "Copy.ai", description: "AI-powered copywriting assistant", link: "https://www.copy.ai", tags: ["AI", "Writing", "Business"] },
+      { name: "Surfer SEO", description: "AI-powered SEO tool", link: "https://www.surferseo.com", tags: ["AI", "SEO", "Marketing"] },
+      { name: "Neural.love", description: "AI art and image generation", link: "https://neural.love", tags: ["AI", "Art", "Creativity"] },
+      { name: "Pexels", description: "Free stock images powered by AI", link: "https://www.pexels.com", tags: ["AI", "Images", "Creativity"] },
+      { name: "Jasper", description: "AI-powered writing assistant", link: "https://www.jasper.ai", tags: ["AI", "Writing", "Business"] },
+      { name: "Canva", description: "AI-powered design tool", link: "https://www.canva.com", tags: ["AI", "Design", "Creativity"] },
+      { name: "Otter.ai", description: "AI transcription and note-taking", link: "https://otter.ai", tags: ["AI", "Productivity", "Writing"] },
+      { name: "Synthesia", description: "AI video generation", link: "https://www.synthesia.io", tags: ["AI", "Video", "Creativity"] },
+      { name: "Lumen5", description: "AI-powered video creation", link: "https://www.lumen5.com", tags: ["AI", "Video", "Creativity"] },
+      { name: "Mubert", description: "AI-powered music generator", link: "https://www.mubert.com", tags: ["AI", "Music", "Creativity"] },
+      { name: "Remove.bg", description: "AI-powered background remover", link: "https://www.remove.bg", tags: ["AI", "Images", "Productivity"] }
+    ];
+
     const grid = document.getElementById("tools-grid");
     const tagsDiv = document.getElementById("tags");
     const toolCount = document.getElementById("tool-count");
