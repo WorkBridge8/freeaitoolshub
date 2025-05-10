@@ -12,26 +12,32 @@
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600">FreeAIToolsHub</h1>
-      <nav class="hidden md:flex space-x-4">
-        <a href="#tools" class="text-gray-600 hover:text-indigo-600">Tools</a>
-        <a href="#submit" class="text-gray-600 hover:text-indigo-600">Submit Tool</a>
-        <a href="#donate" class="text-gray-600 hover:text-indigo-600">Donate</a>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-all duration-300">
+  <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg sticky top-0 z-50 dark:bg-gradient-to-r dark:from-indigo-700 dark:via-purple-800 dark:to-pink-700">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold tracking-wide">FreeAIToolsHub</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#tools" class="text-white hover:text-indigo-100 transition duration-300">Tools</a>
+        <a href="#submit" class="text-white hover:text-indigo-100 transition duration-300">Submit Tool</a>
+        <a href="#donate" class="text-white hover:text-indigo-100 transition duration-300">Donate</a>
       </nav>
+      <!-- Dark Mode Toggle Button -->
+      <button id="dark-mode-toggle" class="text-white p-2 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m4.22-11.22l1.42 1.42M4.22 4.22l1.42 1.42M21 12h-2m-14 0H3m4.22 4.22l1.42-1.42M19.78 19.78l-1.42-1.42M12 7a5 5 0 11-5 5 5 5 0 015-5z" />
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 py-10">
+  <main class="max-w-7xl mx-auto px-6 py-12">
     <section class="text-center mb-10">
-      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Explore the Best Free AI Tools</h2>
-      <p class="text-gray-600 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
+      <h2 class="text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Explore the Best Free AI Tools</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
     </section>
 
     <div class="max-w-xl mx-auto mb-6">
-      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500" />
+      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-indigo-500 transition duration-300" />
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid">
@@ -39,29 +45,49 @@
     </div>
   </main>
 
-  <section id="submit" class="bg-white py-10 border-t border-gray-200">
+  <section id="submit" class="bg-white py-12 border-t border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-2xl font-semibold mb-2">Submit Your Tool</h2>
-      <p class="text-gray-600 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Submit Your Tool</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-6">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-300 dark:hover:text-indigo-400 underline transition duration-300">Email us</a> to get featured!</p>
     </div>
   </section>
 
-  <section id="donate" class="bg-indigo-50 py-10">
+  <section id="donate" class="bg-gradient-to-r from-indigo-200 to-indigo-400 py-12 dark:bg-indigo-600">
     <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-2xl font-semibold mb-2">Support the Project</h2>
-      <p class="text-gray-700 mb-4">Like this project? Consider supporting us via UPI at:</p>
-      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow">
-        <code class="font-mono text-indigo-600">kadamkunal@fam</code>
+      <h2 class="text-3xl font-semibold text-gray-700 dark:text-white mb-6">Support the Project</h2>
+      <p class="text-gray-700 dark:text-gray-200 mb-6">Like this project? Consider supporting us via UPI at:</p>
+      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-600">
+        <code class="font-mono text-indigo-600 dark:text-indigo-300">kadamkunal@fam</code>
       </div>
     </div>
   </section>
 
-  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t dark:bg-gray-800 dark:text-gray-400">
     <p>&copy; 2025 FreeAIToolsHub. All rights reserved.</p>
   </footer>
 
   <script>
-  const tools = [
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check for saved user preference in localStorage
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'enabled') {
+      body.classList.add('dark');
+    }
+
+    // Add event listener to toggle dark mode
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      // Save the user's preference in localStorage
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+
+   const tools = [
   {
     name: "ChatGPT",
     description: "AI chatbot for conversations and problem-solving.",
@@ -226,32 +252,21 @@
 ];
 
 
-
-    const grid = document.getElementById("tools-grid");
+   const grid = document.getElementById("tools-grid");
 
     function renderTools(filter = "") {
       grid.innerHTML = "";
-      tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach(tool => {
+      tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach((tool, index) => {
         const card = document.createElement("div");
-        card.className = "bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition transform hover:scale-105";
+        card.className = "bg-white rounded-xl p-5 shadow-lg hover:shadow-xl transition duration-300 dark:bg-gray-800 dark:text-white";
         card.innerHTML = `
-          <div class="flex items-center">
-            <img src="${tool.icon}" alt="${tool.name}" class="w-12 h-12 mr-4 rounded-lg shadow-md">
-            <h3 class="text-xl font-bold text-gray-800 mb-1">${tool.name}</h3>
-          </div>
-          <p class="text-gray-600 text-sm mb-3">${tool.description}</p>
-          <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold">Visit Tool →</a>
-          <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">
+            ${index + 1}. ${tool.name}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${tool.description}</p>
+          <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold dark:text-indigo-400 dark:hover:text-indigo-500 transition duration-300">Visit Tool →</a>
+          <div class="text-xs text-gray-400 mt-2 dark:text-gray-500">Tags: ${tool.tags.join(", ")}</div>
         `;
         grid.appendChild(card);
       });
     }
-
-    document.getElementById("search").addEventListener("input", (e) => {
-      renderTools(e.target.value);
-    });
-
-    renderTools();
-  </script>
-</body>
-</html>
