@@ -62,49 +62,92 @@
 
   <script>
     const tools = [
-      {
-        name: "ChatGPT",
-        description: "AI chatbot for conversations and problem-solving.",
-        link: "https://chat.openai.com",
-        tags: ["chat", "writing"],
-        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OpenAI_Logo.svg/120px-OpenAI_Logo.svg.png"
-      },
-      {
-        name: "Leonardo AI",
-        description: "AI art and design generator with advanced tools.",
-        link: "https://leonardo.ai",
-        tags: ["image", "art"],
-        icon: "https://leonardo.ai/favicon.ico"
-      },
-      {
-        name: "Notion AI",
-        description: "Boost productivity and notes with built-in AI.",
-        link: "https://www.notion.so/product/ai",
-        tags: ["productivity", "writing"],
-        icon: "https://notion.so/favicon.ico"
-      },
-      {
-        name: "Kreateable",
-        description: "Free AI-powered logo and branding tool.",
-        link: "https://kreateable.com",
-        tags: ["branding", "design"],
-        icon: "https://kreateable.com/favicon.ico"
-      },
-      {
-        name: "Cleanup.pictures",
-        description: "Remove unwanted objects from images using AI.",
-        link: "https://cleanup.pictures",
-        tags: ["image", "cleanup"],
-        icon: "https://cleanup.pictures/favicon.ico"
-      },
-      {
-        name: "Hugging Face Spaces",
-        description: "Explore and use community-made AI apps for free.",
-        link: "https://huggingface.co/spaces",
-        tags: ["tools", "coding"],
-        icon: "https://huggingface.co/favicon.ico"
-      }
-    ];
+  {
+    name: "ChatGPT",
+    description: "AI chatbot for conversations and problem-solving.",
+    link: "https://chat.openai.com",
+    tags: ["chat", "writing"],
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OpenAI_Logo.svg/120px-OpenAI_Logo.svg.png"
+  },
+  {
+    name: "Leonardo AI",
+    description: "AI art and design generator with advanced tools.",
+    link: "https://leonardo.ai",
+    tags: ["image", "art"],
+    icon: "https://leonardo.ai/favicon.ico"
+  },
+  {
+    name: "Notion AI",
+    description: "Boost productivity and notes with built-in AI.",
+    link: "https://www.notion.so/product/ai",
+    tags: ["productivity", "writing"],
+    icon: "https://notion.so/favicon.ico"
+  },
+  {
+    name: "Kreateable",
+    description: "Free AI-powered logo and branding tool.",
+    link: "https://kreateable.com",
+    tags: ["branding", "design"],
+    icon: "https://kreateable.com/favicon.ico"
+  },
+  {
+    name: "Cleanup.pictures",
+    description: "Remove unwanted objects from images using AI.",
+    link: "https://cleanup.pictures",
+    tags: ["image", "cleanup"],
+    icon: "https://cleanup.pictures/favicon.ico"
+  },
+  {
+    name: "Hugging Face Spaces",
+    description: "Explore and use community-made AI apps for free.",
+    link: "https://huggingface.co/spaces",
+    tags: ["tools", "coding"],
+    icon: "https://huggingface.co/favicon.ico"
+  },
+  {
+    name: "Copy.ai",
+    description: "AI-powered content writing and copywriting tool.",
+    link: "https://www.copy.ai",
+    tags: ["writing", "marketing"],
+    icon: "https://www.copy.ai/favicon.ico"
+  },
+  {
+    name: "Runway",
+    description: "AI video editing and creative suite.",
+    link: "https://runwayml.com",
+    tags: ["video", "editing"],
+    icon: "https://runwayml.com/favicon.ico"
+  },
+  {
+    name: "Jasper AI",
+    description: "AI for content creation, blog writing, and more.",
+    link: "https://www.jasper.ai",
+    tags: ["writing", "productivity"],
+    icon: "https://www.jasper.ai/favicon.ico"
+  },
+  {
+    name: "DALL·E 2",
+    description: "AI image generation based on text prompts.",
+    link: "https://openai.com/dall-e-2",
+    tags: ["image", "generation"],
+    icon: "https://openai.com/favicon.ico"
+  },
+  {
+    name: "Writesonic",
+    description: "AI writer for generating articles, blog posts, and more.",
+    link: "https://writesonic.com",
+    tags: ["writing", "marketing"],
+    icon: "https://writesonic.com/favicon.ico"
+  },
+  {
+    name: "Scribe AI",
+    description: "Automated transcription service powered by AI.",
+    link: "https://scribehow.com",
+    tags: ["transcription", "audio"],
+    icon: "https://scribehow.com/favicon.ico"
+  }
+];
+
 
     const grid = document.getElementById("tools-grid");
 
