@@ -5,31 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FreeAIToolsHub</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-white shadow p-4">
-    <h1 class="text-3xl font-bold text-center">FreeAIToolsHub</h1>
-    <p class="text-center text-sm text-gray-500">Discover 100% Free AI Tools for Productivity, Creativity & More</p>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600">FreeAIToolsHub</h1>
+      <nav class="hidden md:flex space-x-4">
+        <a href="#tools" class="text-gray-600 hover:text-indigo-600">Tools</a>
+        <a href="#submit" class="text-gray-600 hover:text-indigo-600">Submit Tool</a>
+        <a href="#donate" class="text-gray-600 hover:text-indigo-600">Donate</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="p-4 max-w-5xl mx-auto">
-    <div class="mb-4">
-      <input type="text" id="search" placeholder="Search tools..." class="w-full p-2 border rounded" />
+  <main class="max-w-7xl mx-auto px-4 py-10">
+    <section class="text-center mb-10">
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Explore the Best Free AI Tools</h2>
+      <p class="text-gray-600 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
+    </section>
+
+    <div class="max-w-xl mx-auto mb-6">
+      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500" />
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="tools-grid">
-      <!-- Tool Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid">
+      <!-- Tool cards go here -->
     </div>
   </main>
 
-  <section class="bg-white p-4 mt-8 shadow">
-    <h2 class="text-xl font-semibold mb-2">Submit a Tool</h2>
-    <p class="text-sm text-gray-600">Know a great free AI tool? <a href="mailto:workbridge008@gmail.com" class="text-blue-600 underline">Email us</a> to get listed!</p>
+  <section id="submit" class="bg-white py-10 border-t border-gray-200">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-2xl font-semibold mb-2">Submit Your Tool</h2>
+      <p class="text-gray-600 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
+    </div>
   </section>
 
-  <footer class="text-center text-sm text-gray-500 p-4 mt-4">
-    <p>Support this project via UPI: <strong>kadamkunal@fam</strong></p>
-    <p>&copy; 2025 FreeAIToolsHub</p>
+  <section id="donate" class="bg-indigo-50 py-10">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-2xl font-semibold mb-2">Support the Project</h2>
+      <p class="text-gray-700 mb-4">Like this project? Consider supporting us via UPI at:</p>
+      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow">
+        <code class="font-mono text-indigo-600">kadamkunal@fam</code>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
+    <p>&copy; 2025 FreeAIToolsHub. All rights reserved.</p>
   </footer>
 
   <script>
@@ -78,12 +106,12 @@
       grid.innerHTML = "";
       tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach(tool => {
         const card = document.createElement("div");
-        card.className = "bg-white p-4 rounded shadow hover:shadow-lg transition";
+        card.className = "bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition";
         card.innerHTML = `
-          <h3 class="text-lg font-bold">${tool.name}</h3>
-          <p class="text-sm mb-2">${tool.description}</p>
-          <a href="${tool.link}" target="_blank" class="text-blue-500 underline">Visit Tool</a>
-          <div class="text-xs text-gray-400 mt-1">Tags: ${tool.tags.join(", ")}</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-1">${tool.name}</h3>
+          <p class="text-gray-600 text-sm mb-3">${tool.description}</p>
+          <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold">Visit Tool →</a>
+          <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
         `;
         grid.appendChild(card);
       });
