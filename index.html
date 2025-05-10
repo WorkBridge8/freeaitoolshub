@@ -66,37 +66,43 @@
         name: "ChatGPT",
         description: "AI chatbot for conversations and problem-solving.",
         link: "https://chat.openai.com",
-        tags: ["chat", "writing"]
+        tags: ["chat", "writing"],
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/OpenAI_Logo.svg/120px-OpenAI_Logo.svg.png"
       },
       {
         name: "Leonardo AI",
         description: "AI art and design generator with advanced tools.",
         link: "https://leonardo.ai",
-        tags: ["image", "art"]
+        tags: ["image", "art"],
+        icon: "https://leonardo.ai/favicon.ico"
       },
       {
         name: "Notion AI",
         description: "Boost productivity and notes with built-in AI.",
         link: "https://www.notion.so/product/ai",
-        tags: ["productivity", "writing"]
+        tags: ["productivity", "writing"],
+        icon: "https://notion.so/favicon.ico"
       },
       {
         name: "Kreateable",
         description: "Free AI-powered logo and branding tool.",
         link: "https://kreateable.com",
-        tags: ["branding", "design"]
+        tags: ["branding", "design"],
+        icon: "https://kreateable.com/favicon.ico"
       },
       {
         name: "Cleanup.pictures",
         description: "Remove unwanted objects from images using AI.",
         link: "https://cleanup.pictures",
-        tags: ["image", "cleanup"]
+        tags: ["image", "cleanup"],
+        icon: "https://cleanup.pictures/favicon.ico"
       },
       {
         name: "Hugging Face Spaces",
         description: "Explore and use community-made AI apps for free.",
         link: "https://huggingface.co/spaces",
-        tags: ["tools", "coding"]
+        tags: ["tools", "coding"],
+        icon: "https://huggingface.co/favicon.ico"
       }
     ];
 
@@ -106,9 +112,12 @@
       grid.innerHTML = "";
       tools.filter(tool => tool.name.toLowerCase().includes(filter.toLowerCase())).forEach(tool => {
         const card = document.createElement("div");
-        card.className = "bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition";
+        card.className = "bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition transform hover:scale-105";
         card.innerHTML = `
-          <h3 class="text-xl font-bold text-gray-800 mb-1">${tool.name}</h3>
+          <div class="flex items-center">
+            <img src="${tool.icon}" alt="${tool.name}" class="w-12 h-12 mr-4 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">${tool.name}</h3>
+          </div>
           <p class="text-gray-600 text-sm mb-3">${tool.description}</p>
           <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 font-semibold">Visit Tool →</a>
           <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
