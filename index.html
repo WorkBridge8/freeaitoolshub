@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,15 +30,6 @@
       transition: transform 0.2s;
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "FreeAIToolsHub",
-    "url": "https://kunalkadam7.github.io/FreeAIToolsHub/",
-    "description": "Explore and discover top free AI tools for productivity, creativity, and business."
-  }
-  </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
   <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
@@ -52,6 +43,7 @@
           <a href="#submit" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Submit Tool</a>
           <a href="#donate" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Donate</a>
         </nav>
+        <button id="toggleDark" class="text-sm px-3 py-1 border border-indigo-500 rounded-md text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-700 transition">Toggle Dark Mode</button>
       </div>
     </div>
   </header>
@@ -100,7 +92,6 @@
   <script>
     AOS.init();
 
-    // AI tools data
     const tools = [
       { name: "ChatGPT", description: "AI conversational model", link: "https://chat.openai.com", tags: ["AI", "Writing", "Productivity"] },
       { name: "DeepL Translator", description: "AI translation tool", link: "https://www.deepl.com", tags: ["AI", "Translation", "Productivity"] },
@@ -116,73 +107,82 @@
       { name: "Canva", description: "AI-powered design tool", link: "https://www.canva.com", tags: ["AI", "Design", "Creativity"] },
       { name: "Otter.ai", description: "AI transcription and note-taking", link: "https://otter.ai", tags: ["AI", "Productivity", "Writing"] },
       { name: "Synthesia", description: "AI video generation", link: "https://www.synthesia.io", tags: ["AI", "Video", "Creativity"] },
-      { name: "Lumen5", description: "AI-powered video creation", link: "https://www.lumen5.com", tags: ["AI", "Video", "Creativity"] },
-      { name: "Mubert", description: "AI-powered music generator", link: "https://www.mubert.com", tags: ["AI", "Music", "Creativity"] },
-      { name: "Remove.bg", description: "AI for background removal", link: "https://www.remove.bg", tags: ["AI", "Images", "Productivity"] },
-      { name: "Artbreeder", description: "AI-generated art", link: "https://www.artbreeder.com", tags: ["AI", "Art", "Creativity"] },
-      { name: "Runway", description: "AI tools for creators", link: "https://www.runwayml.com", tags: ["AI", "Creativity", "Video"] }
+      { name: "Lumen5", description: "AI video editing", link: "https://www.lumen5.com", tags: ["AI", "Video", "Creativity"] }
     ];
 
-    const toolCountElement = document.getElementById("tool-count");
-    const toolsGrid = document.getElementById("tools-grid");
+    // Function to dynamically add tags
+    function createTagButtons(tags) {
+      const uniqueTags = new Set(tags.flatMap(tool => tool.tags));
+      const tagsContainer = document.getElementById("tags");
 
-    // Filter tools based on search query
-    const searchInput = document.getElementById("search");
-    searchInput.addEventListener("input", (e) => {
-      const query = e.target.value.toLowerCase();
-      const filteredTools = tools.filter((tool) => {
-        return (
-          tool.name.toLowerCase().includes(query) ||
-          tool.description.toLowerCase().includes(query) ||
-          tool.tags.some((tag) => tag.toLowerCase().includes(query))
-        );
+      uniqueTags.forEach(tag => {
+        const tagButton = document.createElement("button");
+        tagButton.classList.add("tag-button", "px-4", "py-2", "border", "rounded-lg", "text-sm", "text-gray-600", "dark:text-gray-300", "hover:bg-indigo-100", "dark:hover:bg-gray-700", "transition", "focus:outline-none", "focus:ring-2", "focus:ring-indigo-500");
+        tagButton.textContent = tag;
+        tagButton.setAttribute("aria-label", `Filter by ${tag}`);
+
+        tagButton.addEventListener("click", () => {
+          toggleTagSelection(tag, tagButton);
+        });
+
+        tagsContainer.appendChild(tagButton);
       });
-      updateTools(filteredTools);
-    });
+    }
 
-    // Dynamically create tags
-    const tagsContainer = document.getElementById("tags");
-    const uniqueTags = new Set();
-    tools.forEach((tool) => {
-      tool.tags.forEach((tag) => uniqueTags.add(tag));
-    });
+    // Function to toggle selected state of tags
+    function toggleTagSelection(tag, button) {
+      const isSelected = button.classList.contains("selected");
+      button.classList.toggle("selected", !isSelected);
+      filterByTag(tag, !isSelected); // Filter tools only if the tag is selected
+    }
 
-    uniqueTags.forEach((tag) => {
-      const tagButton = document.createElement("button");
-      tagButton.classList.add("tag-button", "px-4", "py-2", "border", "rounded-lg", "text-sm", "text-gray-600", "dark:text-gray-300", "hover:bg-indigo-100", "dark:hover:bg-gray-700", "transition", "focus:outline-none", "focus:ring-2", "focus:ring-indigo-500");
-      tagButton.textContent = tag;
-      tagButton.addEventListener("click", () => {
-        tagButton.classList.toggle("selected");
-        filterByTag(tag);
-      });
-      tagsContainer.appendChild(tagButton);
-    });
-
-    function filterByTag(tag) {
-      const selectedTags = [...tagsContainer.getElementsByClassName("selected")].map((btn) => btn.textContent.toLowerCase());
-      const filteredTools = tools.filter((tool) => {
-        return selectedTags.every((tag) => tool.tags.some((toolTag) => toolTag.toLowerCase() === tag));
-      });
+    // Function to filter tools based on selected tags
+    function filterByTag(tag, isSelected) {
+      const selectedTags = [...document.querySelectorAll(".tag-button.selected")].map(btn => btn.textContent.toLowerCase());
+      const filteredTools = tools.filter(tool =>
+        selectedTags.every(selectedTag => tool.tags.some(toolTag => toolTag.toLowerCase() === selectedTag))
+      );
       updateTools(filteredTools);
     }
 
-    // Function to update the displayed tools
+    // Function to update the tools grid
     function updateTools(filteredTools) {
-      toolCountElement.textContent = `${filteredTools.length} tools found`;
-      toolsGrid.innerHTML = "";
-      filteredTools.forEach((tool) => {
+      const toolsGrid = document.getElementById("tools-grid");
+      toolsGrid.innerHTML = '';  // Clear the current tools
+      filteredTools.forEach(tool => {
         const toolCard = document.createElement("div");
-        toolCard.classList.add("bg-white", "dark:bg-gray-800", "rounded-lg", "shadow-md", "p-4", "flex", "flex-col", "items-center", "space-y-4");
+        toolCard.classList.add("shadow-md", "p-4", "bg-white", "dark:bg-gray-800", "rounded-xl", "transition", "hover:shadow-lg");
+
         toolCard.innerHTML = `
-          <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400">${tool.name}</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">${tool.description}</p>
-          <a href="${tool.link}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-600">Visit Website</a>
+          <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2"><a href="${tool.link}" class="text-indigo-600 dark:text-indigo-400 hover:underline">${tool.name}</a></h3>
+          <p class="text-gray-600 dark:text-gray-300">${tool.description}</p>
+          <div class="mt-3 text-sm flex flex-wrap gap-2">
+            ${tool.tags.map(tag => `<span class="px-3 py-1 text-indigo-500 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-600 rounded-full">${tag}</span>`).join('')}
+          </div>
         `;
         toolsGrid.appendChild(toolCard);
       });
+      document.getElementById("tool-count").textContent = `${filteredTools.length} tools found`;
     }
 
+    // Initialize tags and tools on page load
+    createTagButtons(tools);
     updateTools(tools);
+
+    // Dark Mode Toggle
+    document.getElementById("toggleDark").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+
+    // Search functionality
+    document.getElementById("search").addEventListener("input", (e) => {
+      const query = e.target.value.toLowerCase();
+      const filteredTools = tools.filter(tool => 
+        tool.name.toLowerCase().includes(query) || tool.description.toLowerCase().includes(query)
+      );
+      updateTools(filteredTools);
+    });
   </script>
 </body>
 </html>
+
