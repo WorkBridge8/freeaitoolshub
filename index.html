@@ -21,71 +21,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .dark .dark\:bg-gray-900 { background-color: #1a202c; }
-    .dark .dark\:text-white { color: #fff; }
-    .tag-button.active { background-color: #6366f1; color: white; }
-    .tag-button.selected { background-color: #6366f1 !important; color: white !important; }
     .shadow-md:hover {
       transform: translateY(-3px);
       transition: transform 0.2s;
     }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
-  <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-indigo-600 flex items-center gap-2">
         <img src="https://cdn-icons-png.flaticon.com/512/4712/4712103.png" alt="logo" class="w-8 h-8 rounded-full"> FreeAIToolsHub
       </h1>
       <div class="flex items-center space-x-4">
         <nav class="hidden md:flex space-x-4">
-          <a href="#tools" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Tools</a>
-          <a href="#submit" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Submit Tool</a>
-          <a href="#donate" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Donate</a>
+          <a href="#tools" class="text-gray-600 hover:text-indigo-600">Tools</a>
+          <a href="#submit" class="text-gray-600 hover:text-indigo-600">Submit Tool</a>
+          <a href="#donate" class="text-gray-600 hover:text-indigo-600">Donate</a>
         </nav>
-        <button id="toggleDark" class="text-sm px-3 py-1 border border-indigo-500 rounded-md text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-700 transition">Toggle Dark Mode</button>
       </div>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-4 py-10">
     <section class="text-center mb-10" data-aos="fade-down">
-      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Explore the Best Free AI Tools</h2>
-      <p class="text-gray-600 dark:text-gray-300 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Explore the Best Free AI Tools</h2>
+      <p class="text-gray-600 text-lg">Hand-picked tools for creators, developers, marketers, and more.</p>
     </section>
 
     <div class="max-w-xl mx-auto mb-4" data-aos="zoom-in">
-      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-800 dark:text-white" />
+      <input type="text" id="search" placeholder="🔍 Search AI tools..." class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-500 bg-white" />
     </div>
 
     <div id="tags" class="flex flex-wrap justify-center gap-2 mb-4" data-aos="fade-up">
       <!-- Tags will be dynamically added here -->
     </div>
 
-    <p id="tool-count" class="text-center text-sm text-gray-500 dark:text-gray-400 mb-4"></p>
+    <p id="tool-count" class="text-center text-sm text-gray-500 mb-4"></p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tools-grid">
       <!-- Tool cards will appear here -->
     </div>
   </main>
 
-  <section id="submit" class="bg-white dark:bg-gray-800 py-10 border-t border-gray-200 dark:border-gray-700" data-aos="fade-left">
+  <section id="submit" class="bg-white py-10 border-t border-gray-200" data-aos="fade-left">
     <div class="max-w-3xl mx-auto text-center px-4">
       <h2 class="text-2xl font-semibold mb-2">Submit Your Tool</h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
+      <p class="text-gray-600 mb-4">Know a great AI tool? <a href="mailto:workbridge008@gmail.com" class="text-indigo-600 underline">Email us</a> to get featured!</p>
     </div>
   </section>
 
-  <section id="donate" class="bg-indigo-50 dark:bg-gray-700 py-10" data-aos="fade-right">
+  <section id="donate" class="bg-indigo-50 py-10" data-aos="fade-right">
     <div class="max-w-3xl mx-auto text-center px-4">
       <h2 class="text-2xl font-semibold mb-2">Support the Project</h2>
-      <p class="text-gray-700 dark:text-gray-200 mb-4">Like this project? Consider supporting us via UPI at:</p>
-      <div class="inline-block bg-white dark:bg-gray-800 px-6 py-3 border border-indigo-200 rounded-xl shadow">
+      <p class="text-gray-700 mb-4">Like this project? Consider supporting us via UPI at:</p>
+      <div class="inline-block bg-white px-6 py-3 border border-indigo-200 rounded-xl shadow">
         <code class="font-mono text-indigo-600">kadamkunal@fam</code>
       </div>
     </div>
   </section>
 
-  <footer class="bg-white dark:bg-gray-800 text-center text-sm text-gray-500 dark:text-gray-300 py-6 border-t dark:border-gray-700" data-aos="fade-up">
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t" data-aos="fade-up">
     <p>&copy; 2025 FreeAIToolsHub. All rights reserved.</p>
   </footer>
 
@@ -117,7 +112,7 @@
 
       uniqueTags.forEach(tag => {
         const tagButton = document.createElement("button");
-        tagButton.classList.add("tag-button", "px-4", "py-2", "border", "rounded-lg", "text-sm", "text-gray-600", "dark:text-gray-300", "hover:bg-indigo-100", "dark:hover:bg-gray-700", "transition", "focus:outline-none", "focus:ring-2", "focus:ring-indigo-500");
+        tagButton.classList.add("tag-button", "px-4", "py-2", "border", "rounded-lg", "text-sm", "text-gray-600", "hover:bg-indigo-100", "transition", "focus:outline-none", "focus:ring-2", "focus:ring-indigo-500");
         tagButton.textContent = tag;
         tagButton.setAttribute("aria-label", `Filter by ${tag}`);
 
@@ -151,13 +146,13 @@
       toolsGrid.innerHTML = '';  // Clear the current tools
       filteredTools.forEach(tool => {
         const toolCard = document.createElement("div");
-        toolCard.classList.add("shadow-md", "p-4", "bg-white", "dark:bg-gray-800", "rounded-xl", "transition", "hover:shadow-lg");
+        toolCard.classList.add("shadow-md", "p-4", "bg-white", "rounded-xl", "transition", "hover:shadow-lg");
 
         toolCard.innerHTML = `
-          <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2"><a href="${tool.link}" class="text-indigo-600 dark:text-indigo-400 hover:underline">${tool.name}</a></h3>
-          <p class="text-gray-600 dark:text-gray-300">${tool.description}</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2"><a href="${tool.link}" class="text-indigo-600 hover:underline">${tool.name}</a></h3>
+          <p class="text-gray-600">${tool.description}</p>
           <div class="mt-3 text-sm flex flex-wrap gap-2">
-            ${tool.tags.map(tag => `<span class="px-3 py-1 text-indigo-500 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-600 rounded-full">${tag}</span>`).join('')}
+            ${tool.tags.map(tag => `<span class="px-3 py-1 text-indigo-500 bg-indigo-100 rounded-full">${tag}</span>`).join('')}
           </div>
         `;
         toolsGrid.appendChild(toolCard);
@@ -168,11 +163,6 @@
     // Initialize tags and tools on page load
     createTagButtons(tools);
     updateTools(tools);
-
-    // Dark Mode Toggle
-    document.getElementById("toggleDark").addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-    });
 
     // Search functionality
     document.getElementById("search").addEventListener("input", (e) => {
@@ -185,4 +175,3 @@
   </script>
 </body>
 </html>
-
