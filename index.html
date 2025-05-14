@@ -52,7 +52,6 @@
           <a href="#submit" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Submit Tool</a>
           <a href="#donate" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600">Donate</a>
         </nav>
-        <button id="toggleDark" class="text-sm px-3 py-1 border border-indigo-500 rounded-md text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-700 transition">Toggle Dark Mode</button>
       </div>
     </div>
   </header>
@@ -121,78 +120,69 @@
       { name: "Mubert", description: "AI-powered music generator", link: "https://www.mubert.com", tags: ["AI", "Music", "Creativity"] },
       { name: "Remove.bg", description: "AI for background removal", link: "https://www.remove.bg", tags: ["AI", "Images", "Productivity"] },
       { name: "Artbreeder", description: "AI-generated art", link: "https://www.artbreeder.com", tags: ["AI", "Art", "Creativity"] },
-      { name: "Runway", description: "AI tools for creators", link: "https://www.runwayml.com", tags: ["AI", "Creativity", "Video"] },
-      { name: "Cortexica", description: "AI for visual search", link: "https://www.cortexica.com", tags: ["AI", "Images", "Business"] },
-      { name: "Fotor", description: "AI-powered photo editor", link: "https://www.fotor.com", tags: ["AI", "Images", "Creativity"] },
-      { name: "Lately.ai", description: "AI for social media content", link: "https://www.lately.ai", tags: ["AI", "Marketing", "Productivity"] },
-      { name: "Veed.io", description: "AI video editor", link: "https://www.veed.io", tags: ["AI", "Video Editing", "Creativity"] }
+      { name: "Runway", description: "AI tools for creators", link: "https://www.runwayml.com", tags: ["AI", "Creativity", "Video"] }
     ];
 
-    const grid = document.getElementById("tools-grid");
-    const tagsDiv = document.getElementById("tags");
-    const toolCount = document.getElementById("tool-count");
-    const allTags = [...new Set(tools.flatMap(t => t.tags))];
-    let selectedTag = "";
+    const toolCountElement = document.getElementById("tool-count");
+    const toolsGrid = document.getElementById("tools-grid");
 
-    function renderTags() {
-      tagsDiv.innerHTML = '<button class="tag-button px-3 py-1 rounded-full border text-sm transition border-indigo-400 text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700" data-tag="">All</button>';
-      allTags.forEach(tag => {
-        const btn = document.createElement('button');
-        btn.textContent = tag;
-        btn.className = 'tag-button px-3 py-1 rounded-full border text-sm transition border-indigo-400 text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700';
-        btn.setAttribute("data-tag", tag);
-        tagsDiv.appendChild(btn);
+    // Filter tools based on search query
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value.toLowerCase();
+      const filteredTools = tools.filter((tool) => {
+        return (
+          tool.name.toLowerCase().includes(query) ||
+          tool.description.toLowerCase().includes(query) ||
+          tool.tags.some((tag) => tag.toLowerCase().includes(query))
+        );
       });
-    }
-
-    tagsDiv.addEventListener("click", (e) => {
-      if (e.target.classList.contains("tag-button")) {
-        const tag = e.target.getAttribute("data-tag");
-        selectedTag = tag;
-        [...tagsDiv.children].forEach(btn => btn.classList.remove("selected"));
-        e.target.classList.add("selected");
-        renderTools(document.getElementById("search").value);
-      }
+      updateTools(filteredTools);
     });
 
-    function renderTools(filter = "") {
-      grid.innerHTML = "";
-      const filtered = tools.filter(t =>
-        t.name.toLowerCase().includes(filter.toLowerCase()) &&
-        (selectedTag === "" || t.tags.includes(selectedTag))
-      );
-      toolCount.textContent = `${filtered.length} tools found`;
+    // Dynamically create tags
+    const tagsContainer = document.getElementById("tags");
+    const uniqueTags = new Set();
+    tools.forEach((tool) => {
+      tool.tags.forEach((tag) => uniqueTags.add(tag));
+    });
 
-      if (filtered.length === 0) {
-        grid.innerHTML = `<p class="text-center col-span-full text-gray-400 dark:text-gray-500">No tools found.</p>`;
-        return;
-      }
+    uniqueTags.forEach((tag) => {
+      const tagButton = document.createElement("button");
+      tagButton.classList.add("tag-button", "px-4", "py-2", "border", "rounded-lg", "text-sm", "text-gray-600", "dark:text-gray-300", "hover:bg-indigo-100", "dark:hover:bg-gray-700", "transition", "focus:outline-none", "focus:ring-2", "focus:ring-indigo-500");
+      tagButton.textContent = tag;
+      tagButton.addEventListener("click", () => {
+        tagButton.classList.toggle("selected");
+        filterByTag(tag);
+      });
+      tagsContainer.appendChild(tagButton);
+    });
 
-      filtered.forEach((tool, index) => {
-        const card = document.createElement("div");
-        card.className = "bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-lg transition";
-        card.setAttribute("data-aos", "zoom-in");
-        card.innerHTML = `
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">${index + 1}. ${tool.name}</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${tool.description}</p>
-          <a href="${tool.link}" target="_blank" class="inline-block mt-2 text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 font-semibold">Visit Tool →</a>
-          <button onclick="navigator.clipboard.writeText('${tool.link}')" class="ml-2 text-xs text-gray-500 hover:text-indigo-500">Copy Link</button>
-          <div class="text-xs text-gray-400 mt-2">Tags: ${tool.tags.join(", ")}</div>
+    function filterByTag(tag) {
+      const selectedTags = [...tagsContainer.getElementsByClassName("selected")].map((btn) => btn.textContent.toLowerCase());
+      const filteredTools = tools.filter((tool) => {
+        return selectedTags.every((tag) => tool.tags.some((toolTag) => toolTag.toLowerCase() === tag));
+      });
+      updateTools(filteredTools);
+    }
+
+    // Function to update the displayed tools
+    function updateTools(filteredTools) {
+      toolCountElement.textContent = `${filteredTools.length} tools found`;
+      toolsGrid.innerHTML = "";
+      filteredTools.forEach((tool) => {
+        const toolCard = document.createElement("div");
+        toolCard.classList.add("bg-white", "dark:bg-gray-800", "rounded-lg", "shadow-md", "p-4", "flex", "flex-col", "items-center", "space-y-4");
+        toolCard.innerHTML = `
+          <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400">${tool.name}</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">${tool.description}</p>
+          <a href="${tool.link}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-600">Visit Website</a>
         `;
-        grid.appendChild(card);
+        toolsGrid.appendChild(toolCard);
       });
     }
 
-    document.getElementById("search").addEventListener("input", (e) => {
-      renderTools(e.target.value);
-    });
-
-    document.getElementById("toggleDark").addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-    });
-
-    renderTags();
-    renderTools();
+    updateTools(tools);
   </script>
 </body>
 </html>
